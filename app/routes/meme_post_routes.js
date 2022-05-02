@@ -85,18 +85,13 @@ router.post('/memes', requireToken, upload.single('upload'), (req, res, next) =>
     .then((awsFile) => {
       return Upload.create({ url: awsFile.Location })
     })
-  // this is basically sending an upload object with key of URL and value of a url for example google
-    .then((uploadDoc) => {
-      res.status(201).json({ upload: uploadDoc })
+    .then((upload) => {
+      req.body.meme.upload = upload._id
+      MemePost.create(req.body.meme)
     })
-  MemePost.create(req.body.meme)
-  // respond to succesful `create` with status 201 and JSON of new "example"
     .then((meme) => {
       res.status(201).json({ meme: meme.toObject() })
     })
-  // if an error occurs, pass it off to our error handler
-  // the error handler needs the error message and the `res` object so that it
-  // can send an error message back to the client
     .catch(next)
 })
 

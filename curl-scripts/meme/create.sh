@@ -3,8 +3,8 @@
 API="http://localhost:4741"
 URL_PATH="/memes"
 TITLE="Hello World"
-UPLOAD="s_yoshi.png"
-TOKEN="830c62c9fad99d85b9709caa53709615"
+UPLOAD="image=@/Users/rzheng/sei/projects/img-api/s_yoshi.png"
+TOKEN="bc6244245d4c8aa7829937f1cbad07c6"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -13,7 +13,6 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "meme": {
-      "title": "'"${TITLE}"'",
-      "upload": {"'"${UPLOAD}"'"}
+      "title": "'"${TITLE}"'"
     }
   }'
