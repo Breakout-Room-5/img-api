@@ -1,5 +1,12 @@
 const mongoose = require('mongoose')
 
+const uploadSchema = new mongoose.Schema({
+  url: {
+    type: String,
+    required: true
+  }
+})
+
 const postSchema = new mongoose.Schema(
   {
     title: {
@@ -11,12 +18,7 @@ const postSchema = new mongoose.Schema(
       ref: 'User',
       required: true
     },
-    upload: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Upload',
-      required: true
-
-    }
+    upload: [uploadSchema]
   },
   {
     timestamps: true
