@@ -79,10 +79,11 @@ router.get('/memes', requireToken, (req, res, next) => {
 // POST /examples
 router.post('/memes', requireToken, upload.single('upload'), (req, res, next) => {
   // set owner of new example to be current user
+  const file = req.file
   console.log(req.body)
   req.body.owner = req.user.id
-  console.log(req.file)
-  s3Upload(req.file)
+  console.log(file)
+  s3Upload(file)
     .then((awsFile) => {
       return Upload.create({ url: awsFile.Location })
     })
