@@ -7,8 +7,6 @@ const cors = require('cors')
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
 const uploadRoutes = require('./app/routes/upload_routes')
-// const memePostRoutes = require('./app/routes/meme_post_routes')
-// require middleware
 const errorHandler = require('./lib/error_handler')
 const requestLogger = require('./lib/request_logger')
 
@@ -60,7 +58,7 @@ app.use(requestLogger)
 app.use(exampleRoutes)
 app.use(userRoutes)
 app.use(uploadRoutes)
-// app.use(memePostRoutes)
+
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them

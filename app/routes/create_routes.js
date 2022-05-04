@@ -1,18 +1,16 @@
-// NOT USING THIS FILE!!!
-
 // Express docs: http://expressjs.com/en/api.html
 const express = require('express')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
-const multer = require('multer')
-const storage = multer.memoryStorage()
-const upload = multer({ storage: storage })
+// const multer = require('multer')
+// const storage = multer.memoryStorage()
+// const upload = multer({ storage: storage })
 // const Upload = require('../models/upload')
 // pull in Mongoose model for examples
 const MemePost = require('../models/meme_post')
 
-const s3Upload = require('../../lib/s3_upload')
+// const s3Upload = require('../../lib/s3_upload')
 
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
@@ -37,17 +35,11 @@ const router = express.Router()
 
 // CREATE
 // POST /examples
-router.post('/memes', requireToken, upload.single('upload'), (req, res, next) => {
+router.post('/memes', requireToken, (req, res, next) => {
   // set owner of new example to be current user
-  const file = req.file
-  console.log(req.body)
   req.body.owner = req.user.id
-  console.log(file)
-  req.body.owner = req.user.id
-  s3Upload(file)
-    .then((awsFile) => {
-      return MemePost.create({ url: awsFile.Location, title: req.body.title })
-    })
+
+  MemePost.create(req.body)
     .then((meme) => {
       res.status(201).json({ meme: meme.toObject() })
     })
