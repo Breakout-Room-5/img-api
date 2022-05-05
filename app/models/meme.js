@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 // the timestamps on this model are going to provide us with the information we will need for created at and updated at
-const uploadSchema = new mongoose.Schema({
+const memeSchema = new mongoose.Schema({
   url: {
     type: String,
     required: true
@@ -22,4 +22,4 @@ const uploadSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Upload', uploadSchema)
+module.exports = mongoose.model('Meme', memeSchema)
