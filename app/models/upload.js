@@ -10,6 +10,9 @@ const uploadSchema = new mongoose.Schema({
   name: {
     type: String
   },
+  author: {
+    type: String
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
