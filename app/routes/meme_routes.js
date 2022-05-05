@@ -30,7 +30,6 @@ router.post('/uploads', upload.single('upload'), requireToken, (req, res, next) 
 // Index all users
 router.get('/uploads/all', requireToken, (req, res, next) => {
   Meme.find()
-    .then((uploads) => res.json({ uploads: uploads }))
     .then((uploads) => res.status(200).json({ uploads: uploads }))
     .catch(next)
 })
