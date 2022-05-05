@@ -25,7 +25,7 @@ router.post('/uploads', upload.single('upload'), requireToken, (req, res, next) 
     //   return Upload.create({owner: req.user.id})
     // })
     .then((upload) => {
-      console.log(req.file.originalname)
+      console.log(req.body.name)
       res.status(201).json({ upload })
     })
     .catch(next)
