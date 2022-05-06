@@ -11,8 +11,8 @@ All images are hosted Amazon Web Service - S3 with user info saved on Mongo DB.
 
   - [Client repo](https://github.com/Breakout-Room-5/img-client)
   - [API repo](https://github.com/Breakout-Room-5/img-api)
-  - [Deployed Client](TBH)
-  - [Deployed API](TBH)
+  - [Deployed Client](https://breakout-room-5.github.io/img-client/)
+  - [Deployed API](https://gentle-waters-29195.herokuapp.com/uploads)
 
 ***
 
