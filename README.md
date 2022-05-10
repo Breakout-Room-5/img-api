@@ -42,6 +42,19 @@ All images are hosted Amazon Web Service - S3 with user info saved on Mongo DB.
     - owner (user who uploaded the image)
     - name
   
+ ## API End Points
+
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| DELETE | `/sign-out`            | `users#signout`   |
+| PATCH  | `/change-password`     | `users#changepw`  |
+| GET    | `/uploads`             | `memes#index`     |
+| POST   | `/uploads`             | `memes#create`    |
+| GET    | `/uploads/:id`         | `memes#show`      |
+| PATCH  | `/uploads/:id`         | `memes#update`    |
+ 
 ### Technologies Used
 
 - Javascript
@@ -60,5 +73,7 @@ All images are hosted Amazon Web Service - S3 with user info saved on Mongo DB.
 
 ***
 
-## ERD
+## Wireframe and ERD
+![Meme Central Wireframe](https://i.imgur.com/JUY8gld.png)
+
 ![Meme Central API ERD](https://i.imgur.com/aW5xBUB.png)
